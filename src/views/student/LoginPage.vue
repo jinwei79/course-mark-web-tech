@@ -22,8 +22,6 @@ export default {
   methods: {
     async handleLogin() {
       this.errorMessage = ''
- console.log("Matric:", this.matric)
-  console.log("PIN:", this.pin)
       try {
         const response = await fetch('http://localhost:8080/student-login', {
           method: 'POST',

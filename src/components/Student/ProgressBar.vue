@@ -2,20 +2,11 @@
   <div v-for="(assessments, courseName) in marks" :key="courseName" class="course-section">
   <h4>{{ courseName }}</h4>
 
-  <!-- Progress Bar -->
   <div class="progress-bar-wrapper">
     <div class="progress-bar" :style="{ width: getPercentage(assessments.total) + '%' }"></div>
   </div>
   <p><strong>{{ assessments.total }}/100</strong> total score</p>
-
-  <!-- Breakdown -->
-  <ul>
-    <li v-for="(mark, name) in getAssessmentsOnly(assessments)" :key="name">
-      {{ name }}: {{ mark }}
-    </li>
-  </ul>
 </div>
-
 </template>
 
 <script>
@@ -48,5 +39,4 @@ export default {
   height: 100%;
   transition: width 0.5s ease;
 }
-
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div class="marks-table">
     <h3>Marks</h3>
-    <br />
 
     <div v-for="(assessments, courseName) in marks" :key="courseName">
       <h4>{{ courseName }}</h4>

@@ -53,7 +53,6 @@ export default {
 
         const data = await res.json();
         this.rankData = data;
-        console.log(this.rankData.total)
       } catch (err) {
         console.error(err);
         this.errorMessage = "Network or server error.";

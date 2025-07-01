@@ -55,10 +55,7 @@ export default {
       });
 
       if (res.ok) {
-        console.log('course')
         this.courses = await res.json();
-        console.log( this.courses)
-
       }
     },
     async loadAssessments() {

@@ -14,13 +14,13 @@
         <RankCard :studentTotal="total" />
       </div>
 
-      <!-- <div v-if="currentSection === 'compare'">
+      <div v-if="currentSection === 'compare'">
         <CompareTable :currentMatric="student.matric" />
       </div>
 
       <div v-if="currentSection === 'simulate'">
         <WhatIfTool :originalMarks="marks" />
-      </div> -->
+      </div>
 
       <div v-if="currentSection === 'remark'">
         <RemarkForm :matric="student.matric" />
@@ -32,24 +32,21 @@
 </template>
 
 <script>
-
 import MarksTable from "@/components/Student/MarksTable.vue";
 import ProgressBar from "@/components/Student/ProgressBar.vue";
-// import CompareTable from "@/components/Student/CompareTable.vue";
+import CompareTable from "@/components/Student/CompareTable.vue";
 import RankCard from "@/components/Student/RankCard.vue";
-// import WhatIfTool from "@/components/Student/WhatIfTool.vue";
+import WhatIfTool from "@/components/Student/WhatIfTool.vue";
 import RemarkForm from "@/components/Student/RemarkForm.vue";
-
-// import marksData from "@/data/marks.json";
 
 export default {
   name: "StudentDashboard",
   components: {
     MarksTable,
     ProgressBar,
-    // CompareTable,
+    CompareTable,
     RankCard,
-    // WhatIfTool,
+    WhatIfTool,
     RemarkForm,
   },
   data() {
@@ -61,46 +58,32 @@ export default {
     };
   },
   mounted() {
-    // const user = JSON.parse(localStorage.getItem("user"));
-    // if (!user || user.role !== "student") {
-    //   this.$router.push("/");
-    //   return;
-    // }
-
-    // this.student = user;
-    // this.marks = marksData[this.student.matric];
-    // this.total = Object.values(this.marks).reduce((a, b) => a + b, 0);
-
-  const user = JSON.parse(localStorage.getItem('user'));
-  const token = localStorage.getItem('token');
-console.log(user)
-console.log(token)
-  if (!user || !token || user.role !== 'student') {
-    this.$router.push('/');
-    return;
-  }
-
-  // Example: Fetch student's marks (using ID or matric depending on your backend)
-  fetch(`http://localhost:8080/students/marks/${user.id}`, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${token}`
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = localStorage.getItem("token");
+    if (!user || !token || user.role !== "student") {
+      this.$router.push("/");
+      return;
     }
-  })
-    .then(response => {
-      if (!response.ok) throw new Error("Unauthorized or not found");
-      return response.json();
+
+    fetch(`http://localhost:8080/students/marks/${user.id}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     })
-    .then(data => {
-      console.log(data)
-      this.marks = data.marks; // Adjust depending on structure
-      this.student = data.student;
-    })
-    .catch(error => {
-      console.error("Failed to fetch student data:", error);
-      this.$router.push('/');
-    });
-},
+      .then((response) => {
+        if (!response.ok) throw new Error("Unauthorized or not found");
+        return response.json();
+      })
+      .then((data) => {
+        this.marks = data.marks;
+        this.student = data.student;
+      })
+      .catch((error) => {
+        console.error("Failed to fetch student data:", error);
+        this.$router.push("/");
+      });
+  },
   methods: {
     setSection(section) {
       this.currentSection = section;
