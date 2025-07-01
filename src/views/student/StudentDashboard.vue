@@ -20,11 +20,11 @@
 
       <div v-if="currentSection === 'simulate'">
         <WhatIfTool :originalMarks="marks" />
-      </div>
+      </div> -->
 
       <div v-if="currentSection === 'remark'">
         <RemarkForm :matric="student.matric" />
-      </div> -->
+      </div>
     </div>
 
     <button @click="logout" class="logout-btn">Logout</button>
@@ -38,7 +38,7 @@ import ProgressBar from "@/components/Student/ProgressBar.vue";
 // import CompareTable from "@/components/Student/CompareTable.vue";
 import RankCard from "@/components/Student/RankCard.vue";
 // import WhatIfTool from "@/components/Student/WhatIfTool.vue";
-// import RemarkForm from "@/components/Student/RemarkForm.vue";
+import RemarkForm from "@/components/Student/RemarkForm.vue";
 
 // import marksData from "@/data/marks.json";
 
@@ -50,7 +50,7 @@ export default {
     // CompareTable,
     RankCard,
     // WhatIfTool,
-    // RemarkForm,
+    RemarkForm,
   },
   data() {
     return {
