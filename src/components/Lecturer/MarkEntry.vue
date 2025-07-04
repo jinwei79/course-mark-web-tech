@@ -2,7 +2,11 @@
     <div class="mark-entry">
       <h2>Enter Student Marks</h2>
   
-      <!-- Select Course -->
+
+   
+
+    
+
       <select v-model="selectedCourse" @change="fetchComponents" required>
         <option disabled value="">Select Course</option>
         <option v-for="course in courses" :key="course.id" :value="course.id">
@@ -10,7 +14,10 @@
         </option>
       </select>
   
-      <!-- Select Component -->
+
+ 
+
+
       <select v-if="selectedCourse" v-model="selectedComponent" @change="fetchStudents" required>
         <option disabled value="">Select Component</option>
         <option v-for="component in components" :key="component.id" :value="component.id">
@@ -18,7 +25,7 @@
         </option>
       </select>
   
-      <!-- Student Marks Table -->
+
       <form v-if="selectedComponent && students.length" @submit.prevent="submitMarks">
         <table>
           <thead>
@@ -141,7 +148,7 @@
   
         const token = localStorage.getItem("token");
   
-        // Enrolled students
+
         const res = await fetch(`http://localhost:8080/marks/enrolled/${this.selectedCourse}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
@@ -153,13 +160,13 @@
           this.marks[student.student_id] = '';
         });
   
-        // Get selected component details (to extract max_mark)
+
         const selectedComp = this.components.find(c => c.id == this.selectedComponent);
         if (selectedComp) {
           this.maxMarkAllowed = selectedComp.max_mark ?? 100;
         }
   
-        // Existing marks
+
         const markRes = await fetch(`http://localhost:8080/marks/component/${this.selectedComponent}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
@@ -178,7 +185,7 @@
           });
         }
       },
-  
+
       async submitMarks() {
         const token = localStorage.getItem("token");
         const userId = localStorage.getItem("user_id");
