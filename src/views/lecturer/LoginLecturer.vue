@@ -64,6 +64,7 @@ export default {
           email: data.lecturer.email
         }))
         localStorage.setItem('token', data.token)
+        localStorage.setItem('user_id', data.lecturer.id) //
 
         // Redirect to lecturer dashboard
         this.$router.push('/dashboard-lecturer')
