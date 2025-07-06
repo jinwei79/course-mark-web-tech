@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .container {
   max-width: 800px;
   margin: 40px auto;
@@ -98,5 +98,5 @@ li img {
   border-radius: 50%;
   margin-right: 15px;
   border: 2px solid #42b983;
-} 
+}
 </style>

@@ -1,0 +1,154 @@
+.dashboard {
+  padding: 1rem;
+}
+
+.logout-btn {
+  float: right;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+nav button {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+  border: 1px solid white;
+  background-color: #42b983;
+}
+
+nav button:hover {
+  background-color: white;
+  color: #42b983;
+  border: 1px solid #42b983;
+}
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 700px;
+  padding: 0 10px;
+}
+
+.nav-grid button {
+  padding: 10px 15px;
+  font-weight: bold;
+  background-color: #42b983;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-grid button:hover {
+  background-color: #2c9f6d;
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.responsive-table th,
+.responsive-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.responsive-table th {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .responsive-table,
+    .responsive-table thead,
+    .responsive-table tbody,
+    .responsive-table th,
+    .responsive-table td,
+    .responsive-table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .responsive-table thead {
+        display: none;
+    }
+
+    .responsive-table tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #f2f2f2;
+    }
+
+    .responsive-table td {
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .responsive-table td:before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #42b983;
+        content: attr(data-label);
+    }
+}
+
+.status-active {
+    color: green;
+    font-weight: bold;
+}
+
+.status-inactive {
+    color: red;
+    font-weight: bold;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: darkgray;
+}
+
+.button-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.button-danger:hover {
+    background-color: #c0392b;
+}
