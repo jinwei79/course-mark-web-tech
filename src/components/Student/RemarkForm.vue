@@ -6,7 +6,7 @@
       <label>Course:</label>
       <select v-model="selectedCourse" @change="loadAssessments" required>
         <option disabled value="">Select Course</option>
-        <option v-for="course in courses" :key="course.code" :value="course.code">
+        <option v-for="course in courses" :key="course.code" :value="course.id">
           {{ course.name }}
         </option>
       </select>

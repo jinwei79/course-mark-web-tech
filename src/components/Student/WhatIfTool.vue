@@ -5,7 +5,7 @@
     <label>Select Course:</label>
     <select v-model="selectedCourse" @change="fetchAssessments">
       <option disabled value="">-- Select a course --</option>
-      <option v-for="c in courses" :key="c.code" :value="c.code">
+      <option v-for="c in courses" :key="c.code" :value="c.id">
         {{ c.name }} ({{ c.code }})
       </option>
     </select>
